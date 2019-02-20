@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>tianditu-microservice-config-server</artifactId>
+	<groupId>com..chinamobile.tianditu.microservice.config.server</groupId>
+	<parent>
+		<groupId>com..chinamobile.tianditu.microservice.parent</groupId>
+		<artifactId>tianditu-microservice-parent</artifactId>
+		<version>${tianditu.version}</version>
+		<relativePath>../tianditu-microservice-parent</relativePath>
+	</parent>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com..chinamobile.tianditu.microservice.util</groupId>
+			<artifactId>tianditu-microservice-util</artifactId>
+			<version>${tianditu.version}</version>
+		</dependency>
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+    </dependencies>
+</project>

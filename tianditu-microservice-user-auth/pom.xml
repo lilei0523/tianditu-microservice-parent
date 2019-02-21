@@ -2,11 +2,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>tianditu-microservice-user-auth</artifactId>
-	<groupId>com..chinamobile.tianditu.microservice.user.auth</groupId>
+	<groupId>com.cyy.chinamobile.tianditu.microservice.user.auth</groupId>
 	<parent>
-		<groupId>com..chinamobile.tianditu.microservice.parent</groupId>
+		<groupId>com.cyy.chinamobile.tianditu.microservice.parent</groupId>
 		<artifactId>tianditu-microservice-parent</artifactId>
-		<version>${tianditu.version}</version>
+		<version>0.0.1</version>
 		<relativePath>../tianditu-microservice-parent</relativePath>
 	</parent>
 
@@ -22,7 +22,7 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>com..chinamobile.tianditu.microservice.util</groupId>
+			<groupId>com.cyy.chinamobile.tianditu.microservice.util</groupId>
 			<artifactId>tianditu-microservice-util</artifactId>
 			<version>${tianditu.version}</version>
 		</dependency>
@@ -53,11 +53,6 @@
 			<groupId>com.jcraft</groupId>
 			<artifactId>jsch</artifactId>
 		</dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>4.2.5.RELEASE</version>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>

@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com..chinamobile.tianditu.microservice.parent</groupId>
+	<groupId>com.cyy.chinamobile.tianditu.microservice.parent</groupId>
 	<artifactId>tianditu-microservice-parent</artifactId>
-	<version>${tianditu.version}</version>
+	<version>0.0.1</version>
 	<packaging>pom</packaging>
 
 	<parent>

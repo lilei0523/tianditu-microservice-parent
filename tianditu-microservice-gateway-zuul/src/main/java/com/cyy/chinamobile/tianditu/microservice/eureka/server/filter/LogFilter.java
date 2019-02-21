@@ -1,4 +1,4 @@
-package com..chinamobile.demo.microservice.eureka.server.filter;
+package com.cyy.chinamobile.tianditu.microservice.eureka.server.filter;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -31,7 +31,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
 
-import com..chinamobile.demo.microservice.util.log.LogIdThreadLocal;
+import com.cyy.chinamobile.tianditu.microservice.util.log.LogIdThreadLocal;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

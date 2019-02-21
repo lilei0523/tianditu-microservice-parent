@@ -10,16 +10,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.cyy.chinamobile.tianditu.microservice.domain.user.vo.UserInfoVo;
+import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @author ：fanmeng
- * @class : WebUserAuthController
- * @description : web端控制层
- * @date ：2017年10月13日上午11:42:27
- */
 
 @RestController
 @RequestMapping("/web")
@@ -29,12 +23,6 @@ public class WebUserAuthController {
 	private UserService userService;
 
 
-	/**
-	 * @param :
-	 * @description : 用户登陆
-	 * @author : fanmeng
-	 * @date : 2017年10月13日上午11:48:07
-	 */
 	@PostMapping("/user/login")
 	public Map<String, Object> login(
 		@Validated({UserAuthValidatedGroup.LoginGroup.class}) @RequestBody UserInfoVo userInfoVo) throws Exception {

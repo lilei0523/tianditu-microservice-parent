@@ -1,4 +1,4 @@
-package com.cyy.chinamobile.demo.microservice.eureka.server;
+package com.cyy.chinamobile.tianditu.microservice.eureka.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

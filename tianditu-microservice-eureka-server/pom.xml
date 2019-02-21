@@ -2,11 +2,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>tianditu-microservice-eureka-server</artifactId>
-	<groupId>com..chinamobile.tianditu.microservice.eureka.server</groupId>
+	<groupId>com.cyy.chinamobile.tianditu.microservice.eureka.server</groupId>
 	<parent>
-		<groupId>com..chinamobile.tianditu.microservice.parent</groupId>
+		<groupId>com.cyy.chinamobile.tianditu.microservice.parent</groupId>
 		<artifactId>tianditu-microservice-parent</artifactId>
-		<version>${tianditu.version}</version>
+		<version>0.0.1</version>
 		<relativePath>../tianditu-microservice-parent</relativePath>
 	</parent>
 	<build>
@@ -20,7 +20,17 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-eureka-server</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+    </dependencies>
 </project>

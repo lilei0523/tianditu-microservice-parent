@@ -2,9 +2,8 @@
  * ChinaMobile  Inc.
  * Copyright (c) 2010-2018 All Rights Reserved.
  */
-package com..chinamobile.demo.microservice.eureka.server.service;
+package com.cyy.chinamobile.tianditu.microservice.eureka.server.service;
 
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
@@ -12,16 +11,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.cyy.chinamobile.tianditu.microservice.domain.common.BusinessExceptionType;
-import com.cyy.chinamobile.tianditu.microservice.domain.exception.BusinessException;
 import com.cyy.chinamobile.tianditu.microservice.domain.user.po.UserInfo;
-import com..chinamobile.demo.microservice.eureka.server.feign.UserFeignService;
-import com..chinamobile.demo.microservice.util.ReturnUtil;
-import com..chinamobile.demo.microservice.util.log.LogIdThreadLocal;
+import com.cyy.chinamobile.tianditu.microservice.eureka.server.feign.UserFeignService;
 
 /**
  * @author zengzhiqiang

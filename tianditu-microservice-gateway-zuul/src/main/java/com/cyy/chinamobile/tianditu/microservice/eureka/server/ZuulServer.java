@@ -1,4 +1,4 @@
-package com..chinamobile.demo.microservice.eureka.server;
+package com.cyy.chinamobile.tianditu.microservice.eureka.server;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -6,12 +6,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
-import com..chinamobile.demo.microservice.util.log.LogIdThreadLocal;
-import com..chinamobile.demo.microservice.util.log.LogIdWorker;
+import com.cyy.chinamobile.tianditu.microservice.util.log.LogIdThreadLocal;
+import com.cyy.chinamobile.tianditu.microservice.util.log.LogIdWorker;
 
 @EnableZuulProxy
 @EnableEurekaClient

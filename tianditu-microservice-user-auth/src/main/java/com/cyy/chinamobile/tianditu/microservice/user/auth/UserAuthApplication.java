@@ -1,4 +1,4 @@
-package com.cyy.chinamobile.demo.microservice.user.auth;
+package com.cyy.chinamobile.tianditu.microservice.user.auth;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

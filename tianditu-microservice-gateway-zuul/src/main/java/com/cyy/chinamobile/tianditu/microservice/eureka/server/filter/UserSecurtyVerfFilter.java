@@ -1,10 +1,10 @@
-package com..chinamobile.demo.microservice.eureka.server.filter;
+package com.cyy.chinamobile.tianditu.microservice.eureka.server.filter;
 
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com..chinamobile.demo.microservice.eureka.server.service.UserInfoService;
+import com.cyy.chinamobile.tianditu.microservice.eureka.server.service.UserInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

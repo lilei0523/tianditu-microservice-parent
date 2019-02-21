@@ -4,7 +4,7 @@
 
 	<groupId>com.cyy.chinamobile.tianditu.microservice.parent</groupId>
 	<artifactId>tianditu-microservice-parent</artifactId>
-	<version>0.0.1</version>
+	<version>${tianditu.version}</version>
 	<packaging>pom</packaging>
 
 	<parent>

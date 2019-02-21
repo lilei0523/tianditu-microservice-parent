@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.cyy.chinamobile.tianditu.microservice.parent</groupId>
 		<artifactId>tianditu-microservice-parent</artifactId>
-		<version>0.0.1</version>
+		<version>${tianditu.version}</version>
 		<relativePath>../tianditu-microservice-parent</relativePath>
 	</parent>
 
@@ -20,14 +20,10 @@
 	</build>
 	<dependencies>
 
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-starter-zuul</artifactId>-->
-		<!--</dependency>-->
 		<dependency>
 			<groupId>com.cyy.chinamobile.tianditu.microservice.util</groupId>
 			<artifactId>tianditu-microservice-util</artifactId>
-			<version>0.0.1</version>
+			<version>${tianditu.version}</version>
 		</dependency>
 
         <dependency>
@@ -37,32 +33,12 @@
             <scope>runtime</scope>
         </dependency>
 
-		<dependency>
-			<groupId>com.github.danielwegener</groupId>
-			<artifactId>logback-kafka-appender</artifactId>
-			<version>0.1.0</version>
-			<scope>runtime</scope>
-		</dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>4.3.9.RELEASE</version>
-        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-openfeign-core</artifactId>
             <version>RELEASE</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>4.2.5.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-openfeign-core</artifactId>
-            <version>RELEASE</version>
-        </dependency>
+
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -72,11 +48,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-netflix-eureka-client</artifactId>
-            <version>RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-openfeign-core</artifactId>
             <version>RELEASE</version>
         </dependency>
 

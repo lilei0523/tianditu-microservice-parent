@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.cyy.chinamobile.tianditu.microservice.parent</groupId>
 		<artifactId>tianditu-microservice-parent</artifactId>
-		<version>0.0.1</version>
+		<version>${tianditu.version}</version>
 		<relativePath>../tianditu-microservice-parent</relativePath>
 	</parent>
 	<dependencies>
@@ -16,20 +16,12 @@
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
 
-		<!--<dependency>-->
-			<!--<groupId>org.hibernate</groupId>-->
-			<!--<artifactId>hibernate-validator</artifactId>-->
-		<!--</dependency>-->
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
             <artifactId>json-path</artifactId>
             <version>2.2.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>RELEASE</version>
-        </dependency>
+
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>

@@ -27,7 +27,7 @@
 		<module>../tianditu-microservice-gateway-zuul</module>
 		<module>../tianditu-microservice-domain</module>
 		<module>../tianditu-microservice-util</module>
-		<module>../tianditu-microservice-user-auth</module>
+		<module>../tianditu-microservice-point</module>
 		<module>../tianditu-hystrix-dashboard</module>
 		<module>../tianditu-hystrix-turbine</module>
 	</modules>

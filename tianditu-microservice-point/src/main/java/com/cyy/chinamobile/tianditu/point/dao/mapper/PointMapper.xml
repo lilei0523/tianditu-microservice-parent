@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.cyy.chinamobile.tianditu.point.dao.mapper.PointMapper">
+	<resultMap id="BaseResultMap"
+		type="com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="VARCHAR" />
+		<result column="internet_site" property="internetSite" jdbcType="VARCHAR" />
+		<result column="lat" property="lat" jdbcType="VARCHAR" />
+		<result column="log" property="log" jdbcType="VARCHAR" />
+		<result column="type" property="type" jdbcType="INTEGER" />
+		<result column="region" property="region" jdbcType="VARCHAR" />
+
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, name, address, phone, internet_site, lat, log, type, region
+	</sql>
+	<select id="selectAllPoints" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from point
+	</select>
+
+</mapper>

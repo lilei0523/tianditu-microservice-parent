@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
@@ -14,12 +13,11 @@ import com.cyy.chinamobile.tianditu.microservice.util.log.LogIdThreadLocal;
 import com.cyy.chinamobile.tianditu.microservice.util.log.LogIdWorker;
 
 @EnableZuulProxy
-@EnableEurekaClient
 @SpringBootApplication
 @EnableFeignClients
 public class ZuulServer implements CommandLineRunner {
 
-	@Value("${spring.cloud.client.ipAddress}")
+	@Value("${spring.cloud.client.ip-address}")
 	private String ipAddress;
 
 	@Value("${server.port}")

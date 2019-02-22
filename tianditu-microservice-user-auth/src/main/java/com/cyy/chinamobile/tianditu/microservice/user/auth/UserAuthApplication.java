@@ -10,9 +10,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 
 @SpringBootApplication
-@EnableDiscoveryClient
 @ServletComponentScan
-@MapperScan("com.cyy.chinamobile.demo.microservice.user.auth.dao.mapper")
+@MapperScan("com.cyy.chinamobile.tianditu.microservice.user.auth.dao.mapper")
 @EnableEncryptableProperties
 @EnableCircuitBreaker
 public class UserAuthApplication {

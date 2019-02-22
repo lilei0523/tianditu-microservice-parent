@@ -157,17 +157,17 @@
 
 	<springProfile name="dev">
 		<!--指定日志输出等级 -->
-		<root level="INFO">
+		<root level="info">
 			<appender-ref ref="STDOUT" />
 		</root>
 	</springProfile>
 
-	<root level="INFO">
+	<root level="info">
 		<appender-ref ref="FILEERROR" />
 		<appender-ref ref="FILEWARN" />
 		<appender-ref ref="FILEINFO" />
 	</root>
-	<logger name="INTERFACE" level="INFO" additivity="true">
+	<logger name="INTERFACE" level="info" additivity="true">
 		<appender-ref ref="INTERFACE" />
 	</logger>
 

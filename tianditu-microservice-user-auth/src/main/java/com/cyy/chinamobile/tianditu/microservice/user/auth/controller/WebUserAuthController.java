@@ -33,5 +33,10 @@ public class WebUserAuthController {
         }
 	}
 
+    @PostMapping("/123")
+    public Map<String, Object> login11() throws Exception {
+        System.out.println("1111");
+        return ReturnUtil.retMapSuccess("登录成功");
+    }
 
 }

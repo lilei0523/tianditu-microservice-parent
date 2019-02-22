@@ -25,4 +25,19 @@ public class PointServiceImpl implements PointService {
     public List<Point> getAllPoints() {
         return pointMapper.selectAllPoints();
     }
+
+    @Override
+    public Object addPoint(Point point) {
+        return pointMapper.addPoint(point);
+    }
+
+    @Override
+    public Object deletePoint(Point point) {
+        return pointMapper.deletePoint(point);
+    }
+
+    @Override
+    public Object updatePoint(Point point) {
+        return pointMapper.updatePoint(point);
+    }
 }

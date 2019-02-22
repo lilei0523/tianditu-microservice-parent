@@ -23,5 +23,47 @@
 		<include refid="Base_Column_List" />
 		from point
 	</select>
+	<insert id="addPoint" parameterType="com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point" useGeneratedKeys="true" keyProperty="id" >
+		insert into
+		point (name, address, phone, internet_site, lat, log, type, region)
+		values (#{point.name},#{point.address},#{point.phone},#{point.internetSite},#{point.lat},#{point.log},#{point.type},#{point.region})
+	</insert>
+	<delete id="deletePoint" parameterType="com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point">
+		delete from point where id = #{point.id}
+	</delete>
+	<update id="updatePoint" parameterType="com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point">
+		update point
+		<set>
+			<if test="point.name != null">
+				name = #{point.name},
+			</if>
+            <if test="point.address != null">
+                address = #{point.address},
+            </if>
+            <if test="point.phone != null">
+                phone = #{point.phone},
+            </if>
+            <if test="point.internetSite != null">
+                internet_site = #{point.internetSite},
+            </if>
+            <if test="point.lat != null">
+                lat = #{point.lat},
+            </if>
+            <if test="point.log != null">
+                log = #{point.log},
+            </if>
+            <if test="point.type != null">
+                type = #{point.type},
+            </if>
+            <if test="point.region != null">
+                region = #{point.region},
+            </if>
+        </set>
+			where
+			1=1
+			<if test="point.id != null">
+				and id = #{point.id}
+			</if>
+	</update>
 
 </mapper>

@@ -8,4 +8,10 @@ public interface PointService {
 
 
     List<Point> getAllPoints();
+
+    Object addPoint(Point point);
+
+    Object deletePoint(Point point);
+
+    Object updatePoint(Point point);
 }

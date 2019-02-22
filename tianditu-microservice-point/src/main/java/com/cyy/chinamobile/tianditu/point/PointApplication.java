@@ -6,6 +6,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
 @ServletComponentScan
@@ -13,6 +17,7 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 @EnableEncryptableProperties
 @EnableCircuitBreaker
 public class PointApplication {
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(PointApplication.class, args);

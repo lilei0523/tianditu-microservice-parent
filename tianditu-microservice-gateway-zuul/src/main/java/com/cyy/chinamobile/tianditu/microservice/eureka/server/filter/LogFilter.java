@@ -42,13 +42,6 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-/**
- * 
- * @ClassName: CustomFilter   
- * @Description: 记录接口请求和返回报文日志过滤器,添加全局日志id到请求头 
- * @author: 张力  
- * @date:2017年10月25日 下午10:24:55
- */
 @Component
 public class LogFilter implements Filter {
 	

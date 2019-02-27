@@ -11,7 +11,7 @@ public interface PointMapper {
 
     List<Point> selectAllPoints();
 
-    Integer updatePoint(@Param("point")Point point);
+    Integer updatePoint(@Param("point")PointVo point);
 
     Integer addPoint(@Param("point") PointVo point);
 

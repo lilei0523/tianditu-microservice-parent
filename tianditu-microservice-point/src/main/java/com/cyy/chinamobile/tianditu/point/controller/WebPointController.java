@@ -61,7 +61,7 @@ public class WebPointController {
      * @date 14:45 2019/2/25
      */
     @PostMapping(value = "/updatePoint")
-    public Map<String, Object> updatePoint(@RequestBody Point point) throws Exception {
+    public Map<String, Object> updatePoint(@Validated(ValidatedGroup.ModifyGroup.class)@RequestBody PointVo point) throws Exception {
         return ReturnUtil.retMapSuccess("修改关键点成功", pointService.updatePoint(point));
     }
 

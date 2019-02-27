@@ -15,5 +15,5 @@ public interface PointService {
 
     Object deletePoint(Map<String,List<Integer>> ids) throws Exception;
 
-    Integer updatePoint(Point point) throws Exception;
+    Integer updatePoint(PointVo point) throws Exception;
 }

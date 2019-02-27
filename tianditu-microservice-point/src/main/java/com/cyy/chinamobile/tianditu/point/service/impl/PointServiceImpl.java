@@ -46,7 +46,7 @@ public class PointServiceImpl implements PointService {
     }
 
     @Override
-    public Integer updatePoint(Point point) {
+    public Integer updatePoint(PointVo point) {
         return pointMapper.updatePoint(point);
     }
 }

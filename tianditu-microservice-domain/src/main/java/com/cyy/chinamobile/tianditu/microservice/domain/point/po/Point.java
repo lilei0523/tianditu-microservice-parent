@@ -1,23 +1,27 @@
 package com.cyy.chinamobile.tianditu.microservice.domain.point.po;
 
-import com.cyy.chinamobile.tianditu.microservice.domain.base.validatedgroup.UserAuthValidatedGroup;
+import com.cyy.chinamobile.tianditu.microservice.domain.base.validatedgroup.ValidatedGroup;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotNull;
 
 @JsonInclude(Include.NON_NULL)
 public class Point {
 
+    @NotNull(groups = ValidatedGroup.ModifyGroup.class,message = "id不能为空")
 	private Integer id;
-	private String name;
+    @NotNull(groups = ValidatedGroup.CreateGroup.class,message = "名称不能为空")
+    private String name;
+    @NotNull(groups = ValidatedGroup.CreateGroup.class,message = "地址不能为空")
     private String address;
+    @NotNull(groups = ValidatedGroup.CreateGroup.class,message = "电话不能为空")
     private String phone;
     private String internetSite;
     private String lat;
     private String log;
-    private Integer type;
+    @NotNull(groups = ValidatedGroup.CreateGroup.class,message = "类别不能为空")
+    private String type;
     private String region;
 
     public String getRegion() {
@@ -84,11 +88,11 @@ public class Point {
         this.log = log;
     }
 
-    public Integer getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Integer type) {
+    public void setType(String type) {
         this.type = type;
     }
 

@@ -1,17 +1,19 @@
 package com.cyy.chinamobile.tianditu.point.service;
 
 import com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point;
+import com.cyy.chinamobile.tianditu.microservice.domain.point.vo.PointVo;
 
 import java.util.List;
+import java.util.Map;
 
 public interface PointService {
 
 
-    List<Point> getAllPoints();
+    List<Point> getAllPoints() throws Exception;
 
-    Object addPoint(Point point);
+    Integer addPoint(PointVo point) throws Exception;
 
-    Object deletePoint(Point point);
+    Object deletePoint(Map<String,List<Integer>> ids) throws Exception;
 
-    Object updatePoint(Point point);
+    Integer updatePoint(Point point) throws Exception;
 }

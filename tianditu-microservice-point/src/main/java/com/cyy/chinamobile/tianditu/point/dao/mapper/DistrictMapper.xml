@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+        namespace="com.cyy.chinamobile.tianditu.point.dao.mapper.DistrictMapper">
+    <resultMap id="BaseResultMap"
+               type="com.cyy.chinamobile.tianditu.microservice.domain.district.po.District">
+        <id column="code" property="code" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="street_code" property="streetCode" jdbcType="INTEGER"/>
+        <result column="province_code" property="provinceCode" jdbcType="INTEGER"/>
+        <result column="city_code" property="cityCode" jdbcType="INTEGER"/>
+        <result column="area_code" property="areaCode" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+		code, name, street_code, province_code, city_code, area_code
+	</sql>
+
+    <select id="getDistricts" resultMap="BaseResultMap" parameterType="map">
+        select
+        <include refid="Base_Column_List"/>
+        from district
+        <where>
+            <choose>
+                <when test="code == null or code ==''">province_code is null </when>
+                <when test="code != '' and provinceCode != '' "> province_code = #{code} AND city_code is NULL</when>
+                <when test="code != '' and cityCode != '' "> city_code = #{code} AND area_code is NULL</when>
+                <when test="code != '' and areaCode != '' "> area_code = #{code} AND street_code is NULL</when>
+                <when test="code != '' and streetCode != '' "> street_code = #{code}</when>
+            </choose>
+        </where>
+    </select>
+
+</mapper>

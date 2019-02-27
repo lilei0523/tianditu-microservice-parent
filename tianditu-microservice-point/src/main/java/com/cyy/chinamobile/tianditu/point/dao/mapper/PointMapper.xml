@@ -1,42 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper
-	namespace="com.cyy.chinamobile.tianditu.point.dao.mapper.PointMapper">
-	<resultMap id="BaseResultMap"
-		type="com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point">
-		<id column="id" property="id" jdbcType="INTEGER" />
-		<result column="name" property="name" jdbcType="VARCHAR" />
-		<result column="address" property="address" jdbcType="VARCHAR" />
-		<result column="phone" property="phone" jdbcType="VARCHAR" />
-		<result column="internet_site" property="internetSite" jdbcType="VARCHAR" />
-		<result column="lat" property="lat" jdbcType="VARCHAR" />
-		<result column="log" property="log" jdbcType="VARCHAR" />
-		<result column="type" property="type" jdbcType="INTEGER" />
-		<result column="region" property="region" jdbcType="VARCHAR" />
+        namespace="com.cyy.chinamobile.tianditu.point.dao.mapper.PointMapper">
+    <resultMap id="BaseResultMap"
+               type="com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="internet_site" property="internetSite" jdbcType="VARCHAR"/>
+        <result column="lat" property="lat" jdbcType="VARCHAR"/>
+        <result column="log" property="log" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="INTEGER"/>
+        <result column="region" property="region" jdbcType="VARCHAR"/>
 
-	</resultMap>
-	<sql id="Base_Column_List">
+    </resultMap>
+    <sql id="Base_Column_List">
 		id, name, address, phone, internet_site, lat, log, type, region
 	</sql>
-	<select id="selectAllPoints" resultMap="BaseResultMap">
-		select
-		<include refid="Base_Column_List" />
-		from point
-	</select>
-	<insert id="addPoint" parameterType="com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point" useGeneratedKeys="true" keyProperty="id" >
+    <select id="selectAllPoints" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from point
+    </select>
+    <select id="selectPointById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from point
+        where
+        id in
+        <foreach collection="list" item="pointId" open="(" separator="," close=")">
+            #{pointId}
+        </foreach>
+    </select>
+    <insert id="addPoint" parameterType="com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point"
+            useGeneratedKeys="true" keyProperty="id">
 		insert into
 		point (name, address, phone, internet_site, lat, log, type, region)
 		values (#{point.name},#{point.address},#{point.phone},#{point.internetSite},#{point.lat},#{point.log},#{point.type},#{point.region})
 	</insert>
-	<delete id="deletePoint" parameterType="com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point">
-		delete from point where id = #{point.id}
-	</delete>
-	<update id="updatePoint" parameterType="com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point">
-		update point
-		<set>
-			<if test="point.name != null">
-				name = #{point.name},
-			</if>
+    <delete id="deletePoint" parameterType="map">
+        delete from point where id in
+        <foreach collection="list" item="pointId" open="(" separator="," close=")">
+            #{pointId}
+        </foreach>
+    </delete>
+    <update id="updatePoint" parameterType="com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point">
+        update point
+        <set>
+            <if test="point.name != null">
+                name = #{point.name},
+            </if>
             <if test="point.address != null">
                 address = #{point.address},
             </if>
@@ -59,11 +73,11 @@
                 region = #{point.region},
             </if>
         </set>
-			where
-			1=1
-			<if test="point.id != null">
-				and id = #{point.id}
-			</if>
-	</update>
+        where
+        1=1
+        <if test="point.id != null">
+            and id = #{point.id}
+        </if>
+    </update>
 
 </mapper>

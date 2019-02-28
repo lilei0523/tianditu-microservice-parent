@@ -1,9 +1,8 @@
 package com.cyy.chinamobile.tianditu.point.service;
 
-import com.cyy.chinamobile.tianditu.microservice.domain.district.po.District;
 import com.cyy.chinamobile.tianditu.microservice.domain.district.vo.DistrictVo;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * @author Li lei
@@ -11,7 +10,7 @@ import java.util.List;
  */
 public interface DistrictService {
 
-    List<District> getDistrict(DistrictVo params);
+    Map<String, Object> getDistrict(DistrictVo params);
 
 
 }

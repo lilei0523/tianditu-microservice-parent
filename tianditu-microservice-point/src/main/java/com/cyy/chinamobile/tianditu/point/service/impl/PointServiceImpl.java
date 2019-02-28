@@ -25,29 +25,29 @@ public class PointServiceImpl implements PointService {
 
 
     @Override
-    public List<Point> getAllPoints() {
-        return pointMapper.selectAllPoints();
+    public Map<String,Object> getAllPoints() {
+        return ReturnUtil.retMapSuccess("查询所有关键点成功", pointMapper.selectAllPoints());
     }
 
     @Override
-    public Integer addPoint(PointVo point) {
-        return pointMapper.addPoint(point);
+    public Map<String,Object> addPoint(PointVo point) {
+        return ReturnUtil.retMapSuccess("新增关键点成功",pointMapper.addPoint(point));
     }
 
     @Override
-    public Object deletePoint(Map<String ,List<Integer>> ids) {
+    public Map<String,Object> deletePoint(Map<String ,List<Integer>> ids) {
         List<Integer> ids1 = ids.get("ids");
         logger.info("删除项id："+ids1.toString());
         List<Point> points = pointMapper.selectPointById(ids1);
         if (points.isEmpty()) {
             return ReturnUtil.retMapFormatError("请确认需要删除的项是否存在");
         }
-        return pointMapper.deletePoint(ids1);
+        return ReturnUtil.retMapSuccess("删除成功",pointMapper.deletePoint(ids1));
     }
 
     @Override
-    public Integer updatePoint(PointVo point) {
-        return pointMapper.updatePoint(point);
+    public Map<String,Object> updatePoint(PointVo point) {
+        return ReturnUtil.retMapSuccess("更新关键点成功", pointMapper.updatePoint(point));
     }
 }
 

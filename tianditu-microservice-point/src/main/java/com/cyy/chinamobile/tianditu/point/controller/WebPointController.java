@@ -1,7 +1,6 @@
 package com.cyy.chinamobile.tianditu.point.controller;
 
 import com.cyy.chinamobile.tianditu.microservice.domain.base.validatedgroup.ValidatedGroup;
-import com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point;
 import com.cyy.chinamobile.tianditu.microservice.domain.point.vo.PointVo;
 import com.cyy.chinamobile.tianditu.microservice.util.ReturnUtil;
 import com.cyy.chinamobile.tianditu.point.service.PointService;
@@ -27,7 +26,7 @@ public class WebPointController {
      */
     @GetMapping(value = "/getAllPoints", produces = "application/json")
     public Map<String, Object> getAllPoints() throws Exception {
-        return ReturnUtil.retMapSuccess("查询所有关键点成功", pointService.getAllPoints());
+        return  pointService.getAllPoints();
     }
 
     /**
@@ -39,7 +38,7 @@ public class WebPointController {
     @PostMapping(value = "/addPoint", produces = "application/json")
     public Map<String, Object> addPoint(@Validated(ValidatedGroup.CreateGroup.class)
                                             @RequestBody PointVo point) throws Exception {
-        return ReturnUtil.retMapSuccess("新增关键点成功", pointService.addPoint(point));
+        return pointService.addPoint(point);
     }
 
     /**
@@ -52,7 +51,7 @@ public class WebPointController {
         if (ids.size() <= 0) {
             return ReturnUtil.retMapFormatError("请传递需要删除的项");
         }
-        return ReturnUtil.retMapSuccess("删除关键点成功", pointService.deletePoint(ids));
+        return  pointService.deletePoint(ids);
     }
 
     /**
@@ -62,7 +61,7 @@ public class WebPointController {
      */
     @PostMapping(value = "/updatePoint")
     public Map<String, Object> updatePoint(@Validated(ValidatedGroup.ModifyGroup.class)@RequestBody PointVo point) throws Exception {
-        return ReturnUtil.retMapSuccess("修改关键点成功", pointService.updatePoint(point));
+        return pointService.updatePoint(point);
     }
 
 }

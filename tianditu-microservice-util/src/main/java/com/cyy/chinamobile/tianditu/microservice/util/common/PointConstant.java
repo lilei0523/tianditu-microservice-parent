@@ -7,6 +7,8 @@ package com.cyy.chinamobile.tianditu.microservice.util.common;
 public class PointConstant {
     public static final String NULL = "";
     public static final String CODE = "code";
+    public static final String DISTRICT = "district";
+
     public static final String PROVINCE = "province";
     public static final String CITY = "city";
     public static final String AREA = "area";

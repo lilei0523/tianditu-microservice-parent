@@ -30,6 +30,6 @@ public class DistrictController {
      */
     @PostMapping(value = "/getDistricts", produces = "application/json")
     public Map<String, Object> getDistrict(@RequestBody DistrictVo districtVo) throws Exception {
-        return ReturnUtil.retMapSuccess("查询成功", districtService.getDistrict(districtVo));
+        return  districtService.getDistrict(districtVo);
     }
 }

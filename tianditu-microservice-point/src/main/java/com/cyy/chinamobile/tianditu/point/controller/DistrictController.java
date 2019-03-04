@@ -1,7 +1,6 @@
 package com.cyy.chinamobile.tianditu.point.controller;
 
 import com.cyy.chinamobile.tianditu.microservice.domain.district.vo.DistrictVo;
-import com.cyy.chinamobile.tianditu.microservice.util.ReturnUtil;
 import com.cyy.chinamobile.tianditu.point.service.DistrictService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

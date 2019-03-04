@@ -63,5 +63,4 @@ public class WebPointController {
     public Map<String, Object> updatePoint(@Validated(ValidatedGroup.ModifyGroup.class)@RequestBody PointVo point) throws Exception {
         return pointService.updatePoint(point);
     }
-
 }

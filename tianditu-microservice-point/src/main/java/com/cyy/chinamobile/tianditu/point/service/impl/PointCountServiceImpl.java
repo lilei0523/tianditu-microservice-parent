@@ -50,7 +50,8 @@ public class PointCountServiceImpl implements PointCountService {
             Map<String, Object> provinceMap = new HashMap<>();
             provinceMap.put("name", provinceData.getName());
             provinceMap.put("provinceCode", provinceData.getCode());
-            provinceMap.put("count", provinceData.getCountGeneralHospital());
+            provinceMap.put("generalHospitalCount", provinceData.getCountGeneralHospital());
+            provinceMap.put("specialistHospitalCount", provinceData.getCountSpecialistHospital());
             provinceMap.put("lon", provinceData.getLon());
             provinceMap.put("lat", provinceData.getLat());
 
@@ -63,7 +64,8 @@ public class PointCountServiceImpl implements PointCountService {
                     Map<String, Object> cityMap = new HashMap<>();
                     cityMap.put("name", cityData.getName());
                     cityMap.put("cityCode", cityData.getCode());
-                    cityMap.put("count", cityData.getCountGeneralHospital());
+                    cityMap.put("generalHospitalCount", cityData.getCountGeneralHospital());
+                    cityMap.put("specialistHospitalCount", cityData.getCountSpecialistHospital());
                     cityMap.put("lon", cityData.getLon());
                     cityMap.put("lat", cityData.getLat());
 
@@ -76,7 +78,8 @@ public class PointCountServiceImpl implements PointCountService {
                             Map<String, Object> areaMap = new HashMap<>();
                             areaMap.put("name", areaData.getName());
                             areaMap.put("areaCode", areaData.getCode());
-                            areaMap.put("count", areaData.getCountGeneralHospital());
+                            areaMap.put("generalHospitalCount", areaData.getCountGeneralHospital());
+                            areaMap.put("specialistHospitalCount", areaData.getCountSpecialistHospital());
                             areaMap.put("lon", areaData.getLon());
                             areaMap.put("lat", areaData.getLat());
                             areaList.add(areaMap);

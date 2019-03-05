@@ -18,13 +18,13 @@ public class PointCount {
      */
     private String name;
     /**
-     * 辖区范围内的关键点数量
+     * 辖区范围内的综合医院数量
      */
     private Integer countGeneralHospital;
     /**
-     * 关键点类型
+     * 辖区范围内的专科医院数量
      */
-    private String type;
+    private Integer countSpecialistHospital;
 
     /**
      * 省编码
@@ -112,12 +112,12 @@ public class PointCount {
         this.countGeneralHospital = countGeneralHospital;
     }
 
-    public String getType() {
-        return type;
+    public Integer getCountSpecialistHospital() {
+        return countSpecialistHospital;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCountSpecialistHospital(Integer countSpecialistHospital) {
+        this.countSpecialistHospital = countSpecialistHospital;
     }
 
     public String getProvinceName() {
@@ -143,11 +143,11 @@ public class PointCount {
                 ", code='" + code + '\'' +
                 ", name='" + name + '\'' +
                 ", countGeneralHospital=" + countGeneralHospital +
-                ", type='" + type + '\'' +
+                ", countSpecialistHospital=" + countSpecialistHospital +
                 ", provinceCode='" + provinceCode + '\'' +
                 ", provinceName='" + provinceName + '\'' +
                 ", cityCode='" + cityCode + '\'' +
-                ", cityname='" + cityName + '\'' +
+                ", cityName='" + cityName + '\'' +
                 ", lat=" + lat +
                 ", lon=" + lon +
                 '}';

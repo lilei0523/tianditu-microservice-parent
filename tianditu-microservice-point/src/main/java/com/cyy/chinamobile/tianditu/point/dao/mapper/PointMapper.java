@@ -11,11 +11,13 @@ public interface PointMapper {
 
     List<Point> selectAllPoints();
 
-    Integer updatePoint(@Param("point")PointVo point);
+    Integer updatePoint(@Param("point") PointVo point);
 
     Integer addPoint(@Param("point") PointVo point);
 
     Integer deletePoint(List<Integer> ids);
 
     List<Point> selectPointById(List<Integer> ids);
+
+    List<Point> getPointsLikeName(String pointName);
 }

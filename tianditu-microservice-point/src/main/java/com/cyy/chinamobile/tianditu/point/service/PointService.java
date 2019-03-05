@@ -8,11 +8,13 @@ import java.util.Map;
 public interface PointService {
 
 
-    Map<String,Object> getAllPoints() throws Exception;
+    Map<String, Object> getAllPoints(PointVo pointVo) throws Exception;
 
-    Map<String,Object> addPoint(PointVo point) throws Exception;
+    Map<String, Object> addPoint(PointVo point) throws Exception;
 
-    Map<String,Object>  deletePoint(Map<String,List<Integer>> ids) throws Exception;
+    Map<String, Object> deletePoint(Map<String, List<Integer>> ids) throws Exception;
 
-    Map<String,Object> updatePoint(PointVo point) throws Exception;
+    Map<String, Object> updatePoint(PointVo point) throws Exception;
+
+    Map<String, Object> getPointsLikeName(String pointName);
 }

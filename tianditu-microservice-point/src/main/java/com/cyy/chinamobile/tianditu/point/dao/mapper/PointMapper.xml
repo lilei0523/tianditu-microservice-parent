@@ -18,10 +18,16 @@
     <sql id="Base_Column_List">
 		id, name, address, phone, internet_site, lat, log, type, region
 	</sql>
-    <select id="selectAllPoints" resultMap="BaseResultMap">
+    <select id="selectAllPoints"  resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from point
+    </select>
+    <select id="getPointsLikeName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from point p
+        where p.name like concat('%',#{pointName},'%')
     </select>
     <select id="selectPointById" resultMap="BaseResultMap">
         select

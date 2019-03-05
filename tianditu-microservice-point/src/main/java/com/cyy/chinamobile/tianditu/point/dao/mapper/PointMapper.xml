@@ -12,11 +12,12 @@
         <result column="lat" property="lat" jdbcType="VARCHAR"/>
         <result column="log" property="log" jdbcType="VARCHAR"/>
         <result column="type" property="type" jdbcType="INTEGER"/>
+        <result column="is_top_three_hospital" property="isTopThreeHospital" jdbcType="BIT"/>
         <result column="region" property="region" jdbcType="VARCHAR"/>
 
     </resultMap>
     <sql id="Base_Column_List">
-		id, name, address, phone, internet_site, lat, log, type, region
+		id, name, address, phone, internet_site, lat, log, type,is_top_three_hospital, region
 	</sql>
     <select id="selectAllPoints"  resultMap="BaseResultMap">
         select
@@ -42,8 +43,8 @@
     <insert id="addPoint" parameterType="com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point"
             useGeneratedKeys="true" keyProperty="id">
 		insert into
-		point (name, address, phone, internet_site, lat, log, type, region)
-		values (#{point.name},#{point.address},#{point.phone},#{point.internetSite},#{point.lat},#{point.log},#{point.type},#{point.region})
+		point (name, address, phone, internet_site, lat, log, type,is_top_three_hospital, region)
+		values (#{point.name},#{point.address},#{point.phone},#{point.internetSite},#{point.lat},#{point.log},#{point.type},#{point.isTopThreeHospital},#{point.region})
 	</insert>
     <delete id="deletePoint" parameterType="map">
         delete from point where id in
@@ -74,6 +75,9 @@
             </if>
             <if test="point.type != null">
                 type = #{point.type},
+            </if>
+            <if test="point.is_top_three_hospital != null">
+                type = #{point.isTopThreeHospital},
             </if>
             <if test="point.region != null">
                 region = #{point.region},

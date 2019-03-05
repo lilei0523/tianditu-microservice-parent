@@ -19,10 +19,12 @@ import java.util.Map;
 @Transactional(rollbackFor = Exception.class)
 @Service
 public class PointServiceImpl implements PointService {
-
+    private PointMapper pointMapper;
 
     @Autowired
-    private PointMapper pointMapper;
+    PointServiceImpl(PointMapper pointMapper) {
+        this.pointMapper = pointMapper;
+    }
 
     private static final Logger logger = LoggerFactory.getLogger(PointServiceImpl.class);
 

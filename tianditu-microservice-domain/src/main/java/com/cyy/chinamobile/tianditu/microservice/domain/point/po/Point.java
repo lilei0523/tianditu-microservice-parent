@@ -22,6 +22,10 @@ public class Point {
     private String log;
     @NotNull(groups = ValidatedGroup.CreateGroup.class,message = "类别不能为空")
     private String type;
+    /**
+     * 是否是三甲医院，0:不是，1：是
+     */
+    private Byte isTopThreeHospital = 0;
     private String region;
 
     public String getRegion() {
@@ -92,6 +96,14 @@ public class Point {
         return type;
     }
 
+    public Byte getIsTopThreeHospital() {
+        return isTopThreeHospital;
+    }
+
+    public void setIsTopThreeHospital(Byte isTopThreeHospital) {
+        this.isTopThreeHospital = isTopThreeHospital;
+    }
+
     public void setType(String type) {
         this.type = type;
     }
@@ -106,7 +118,8 @@ public class Point {
                 ", internetSite='" + internetSite + '\'' +
                 ", lat='" + lat + '\'' +
                 ", log='" + log + '\'' +
-                ", type=" + type +
+                ", type='" + type + '\'' +
+                ", isTopThreeHospital=" + isTopThreeHospital +
                 ", region='" + region + '\'' +
                 '}';
     }

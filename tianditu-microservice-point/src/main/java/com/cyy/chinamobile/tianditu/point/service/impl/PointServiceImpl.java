@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,13 +38,15 @@ public class PointServiceImpl implements PointService {
         }
         // 查询所有point
         List<Point> allPoints = pointMapper.selectAllPoints();
+        Integer total = pointMapper.countPoints();
 
         if (pointVo.getCurrentPage() != null && pointVo.getPageSize() != null) {
             // 构建pageData
-            PageBean<Point> pageData = new PageBean<>(pointVo.getCurrentPage(), pointVo.getPageSize(), allPoints.size());
+            PageBean<Point> pageData = new PageBean<>(pointVo.getCurrentPage(), pointVo.getPageSize(), total);
             pageData.setItems(allPoints);
+            pageData.setTotalNum(total);
             // 返回分页数据
-            return ReturnUtil.retMapSuccess("查询所有关键点成功", pageData.getItems());
+            return ReturnUtil.retMapSuccess("查询所有关键点成功", pageData);
         }
         // 返回所有数据
         return ReturnUtil.retMapSuccess("查询所有关键点成功", allPoints);
@@ -73,6 +76,25 @@ public class PointServiceImpl implements PointService {
     @Override
     public Map<String, Object> getPointsLikeName(String pointName) {
         return ReturnUtil.retMapSuccess("根据名称模糊查询成功", pointMapper.getPointsLikeName(pointName));
+    }
+
+    @Override
+    public Map<String, Object> getPointsByMap(PointVo pointVo) {
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("mLat", pointVo.getmLat());
+        params.put("mLng", pointVo.getmLng());
+        params.put("vLat", pointVo.getvLat());
+        params.put("vLng", pointVo.getvLng());
+        Map<String, Object> result = new HashMap<>();
+        for (String type : pointVo.getTypes()) {
+            params.put("type", type);
+            List<Point> points = pointMapper.getPointsByMap(params);
+
+            result.put(type, points);
+        }
+
+        return ReturnUtil.retMapSuccess("查询成功",result);
     }
 }
 

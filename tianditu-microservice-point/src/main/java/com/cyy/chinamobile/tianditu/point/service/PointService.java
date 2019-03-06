@@ -17,4 +17,6 @@ public interface PointService {
     Map<String, Object> updatePoint(PointVo point) throws Exception;
 
     Map<String, Object> getPointsLikeName(String pointName);
+
+    Map<String,Object> getPointsByMap(PointVo pointVo);
 }

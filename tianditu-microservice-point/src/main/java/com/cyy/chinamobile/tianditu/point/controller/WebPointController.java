@@ -6,10 +6,7 @@ import com.cyy.chinamobile.tianditu.microservice.util.ReturnUtil;
 import com.cyy.chinamobile.tianditu.point.service.PointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -78,8 +75,20 @@ public class WebPointController {
      *
      * @date 14:45 2019/2/25
      */
-    @PostMapping(value = "/updatePoint")
-    public Map<String, Object> updatePoint(@Validated(ValidatedGroup.ModifyGroup.class) @RequestBody PointVo point) throws Exception {
+    @PostMapping(value = "/updatePoint", produces = "application/json")
+    public Map<String, Object> updatePoint(@Validated(ValidatedGroup.ModifyGroup.class)
+                                           @RequestBody PointVo point) throws Exception {
         return pointService.updatePoint(point);
+    }
+
+    /**
+     * 根据传入的地图坐标信息，查询范围内的point详情
+     *
+     * @date 10:11 2019/3/6
+     */
+    @PostMapping(value = "/getPointsByMap", produces = "application/json")
+    public Map<String, Object> getPointsByMap(@Validated(ValidatedGroup.QueryGroup.class)
+                                              @RequestBody PointVo pointVo) {
+        return pointService.getPointsByMap(pointVo);
     }
 }

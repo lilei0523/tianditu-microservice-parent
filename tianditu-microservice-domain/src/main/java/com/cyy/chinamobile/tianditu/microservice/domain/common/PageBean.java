@@ -13,11 +13,11 @@ public class PageBean<T> {
     /**
      * 当前页
      */
-    private Integer currentPage = 1;
+    private Integer currentPage;
     /**
      * 每页显示的总条数
      */
-    private Integer pageSize = 10;
+    private Integer pageSize;
     /**
      * 总条数
      */

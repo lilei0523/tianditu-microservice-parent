@@ -14,14 +14,18 @@
         <result column="type" property="type" jdbcType="INTEGER"/>
         <result column="is_top_three_hospital" property="isTopThreeHospital" jdbcType="BIT"/>
         <result column="region" property="region" jdbcType="VARCHAR"/>
-
+        <result column="local_site_name" property="localSiteName" jdbcType="VARCHAR"/>
     </resultMap>
     <sql id="Base_Column_List">
-		id, name, address, phone, internet_site, lat, log, type,is_top_three_hospital, region
-	</sql>
-    <select id="selectAllPoints"  resultMap="BaseResultMap">
+        id, name, address, phone, internet_site, lat, log, type, is_top_three_hospital, region, local_site_name
+    </sql>
+    <select id="selectAllPoints" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
+        from point
+    </select>
+    <select id="countPoints" resultType="Integer">
+        select count(0)
         from point
     </select>
     <select id="getPointsLikeName" resultMap="BaseResultMap">
@@ -42,10 +46,11 @@
     </select>
     <insert id="addPoint" parameterType="com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point"
             useGeneratedKeys="true" keyProperty="id">
-		insert into
-		point (name, address, phone, internet_site, lat, log, type,is_top_three_hospital, region)
-		values (#{point.name},#{point.address},#{point.phone},#{point.internetSite},#{point.lat},#{point.log},#{point.type},#{point.isTopThreeHospital},#{point.region})
-	</insert>
+        insert into
+            point (name, address, phone, internet_site, lat, log, type, is_top_three_hospital, region, local_site_name)
+        values (#{point.name}, #{point.address}, #{point.phone}, #{point.internetSite}, #{point.lat}, #{point.log},
+                #{point.type}, #{point.isTopThreeHospital}, #{point.region}, #{point.localSiteName})
+    </insert>
     <delete id="deletePoint" parameterType="map">
         delete from point where id in
         <foreach collection="list" item="pointId" open="(" separator="," close=")">
@@ -66,6 +71,9 @@
             </if>
             <if test="point.internetSite != null">
                 internet_site = #{point.internetSite},
+            </if>
+            <if test="point.localSiteName != null">
+                local_site_name = #{point.localSiteName},
             </if>
             <if test="point.lat != null">
                 lat = #{point.lat},
@@ -89,5 +97,25 @@
             and id = #{point.id}
         </if>
     </update>
+    <select id="getPointsByMap" parameterType="map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from point
+        where
+        lat <![CDATA[>=]]> #{mLat}
+        and
+        lat <![CDATA[<=]]> #{vLat}
+        and
+        log <![CDATA[>=]]> #{mLng}
+        and
+        log <![CDATA[<=]]> #{vLng}
+        and
+        type = #{type}
+        <!--type in
+        <foreach collection="types" index="index" item="type" open="(" separator="," close=")">
+            #{type}
+        </foreach>-->
+
+    </select>
 
 </mapper>

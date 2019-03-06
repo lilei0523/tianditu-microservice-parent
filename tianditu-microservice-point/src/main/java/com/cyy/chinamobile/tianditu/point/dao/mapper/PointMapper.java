@@ -6,6 +6,7 @@ import com.cyy.chinamobile.tianditu.microservice.domain.point.vo.PointVo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface PointMapper {
 
@@ -20,4 +21,8 @@ public interface PointMapper {
     List<Point> selectPointById(List<Integer> ids);
 
     List<Point> getPointsLikeName(String pointName);
+
+    Integer countPoints();
+
+    List<Point> getPointsByMap(Map<String, Object> params);
 }

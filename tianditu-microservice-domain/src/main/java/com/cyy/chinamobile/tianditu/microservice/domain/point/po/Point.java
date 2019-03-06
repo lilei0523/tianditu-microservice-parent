@@ -1,6 +1,7 @@
 package com.cyy.chinamobile.tianditu.microservice.domain.point.po;
 
 import com.cyy.chinamobile.tianditu.microservice.domain.base.validatedgroup.ValidatedGroup;
+import com.cyy.chinamobile.tianditu.microservice.domain.common.CodeConstants;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -9,18 +10,19 @@ import javax.validation.constraints.NotNull;
 @JsonInclude(Include.NON_NULL)
 public class Point {
 
-    @NotNull(groups = ValidatedGroup.ModifyGroup.class,message = "id不能为空")
-	private Integer id;
-    @NotNull(groups = ValidatedGroup.CreateGroup.class,message = "名称不能为空")
+    @NotNull(groups = ValidatedGroup.ModifyGroup.class, message = "id不能为空")
+    private Integer id;
+    @NotNull(groups = ValidatedGroup.CreateGroup.class, message = "名称不能为空")
     private String name;
-    @NotNull(groups = ValidatedGroup.CreateGroup.class,message = "地址不能为空")
+    @NotNull(groups = ValidatedGroup.CreateGroup.class, message = "地址不能为空")
     private String address;
-    @NotNull(groups = ValidatedGroup.CreateGroup.class,message = "电话不能为空")
+    @NotNull(groups = ValidatedGroup.CreateGroup.class, message = "电话不能为空")
     private String phone;
     private String internetSite;
+    private String localSiteName;
     private String lat;
     private String log;
-    @NotNull(groups = ValidatedGroup.CreateGroup.class,message = "类别不能为空")
+    @NotNull(groups = ValidatedGroup.CreateGroup.class, message = "类别不能为空")
     private String type;
     /**
      * 是否是三甲医院，0:不是，1：是
@@ -76,6 +78,19 @@ public class Point {
         this.internetSite = internetSite;
     }
 
+    public String getLocalSiteName() {
+        return localSiteName;
+    }
+
+    public void setLocalSiteName(String localSiteName) {
+        // 拼接URL
+        if (localSiteName == null) {
+            this.localSiteName = localSiteName;
+        } else {
+            this.localSiteName = CodeConstants.SYSTEM_INTER_CONSTATNTS.LOCAL_SITE_URL + localSiteName + CodeConstants.SYSTEM_INTER_CONSTATNTS.HTML;
+        }
+    }
+
     public String getLat() {
         return lat;
     }
@@ -116,11 +131,18 @@ public class Point {
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
                 ", internetSite='" + internetSite + '\'' +
+                ", localSiteName='" + localSiteName + '\'' +
                 ", lat='" + lat + '\'' +
                 ", log='" + log + '\'' +
                 ", type='" + type + '\'' +
                 ", isTopThreeHospital=" + isTopThreeHospital +
                 ", region='" + region + '\'' +
                 '}';
+    }
+
+    public static void main(String[] args) {
+        Point point = new Point();
+        point.setLocalSiteName("a");
+        System.out.println(point.getLocalSiteName());
     }
 }

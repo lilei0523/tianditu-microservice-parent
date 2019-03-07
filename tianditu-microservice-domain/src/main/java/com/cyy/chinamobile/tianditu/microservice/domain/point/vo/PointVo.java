@@ -1,6 +1,7 @@
 package com.cyy.chinamobile.tianditu.microservice.domain.point.vo;
 
 import com.cyy.chinamobile.tianditu.microservice.domain.base.validatedgroup.ValidatedGroup;
+import com.cyy.chinamobile.tianditu.microservice.domain.base.validatedgroup.tiandituplatform.PointValidatedGroup;
 import com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -42,7 +43,9 @@ public class PointVo extends Point {
     private List<String> types;
 
     private String pointName;
+    @NotNull(groups = {PointValidatedGroup.QueryPointByPageGroup.class},message = "请传递当前页")
     private Integer currentPage ;
+    @NotNull(groups = {PointValidatedGroup.QueryPointByPageGroup.class},message = "请传递每页显示记录数")
     private Integer pageSize ;
 
     public String getPointName() {

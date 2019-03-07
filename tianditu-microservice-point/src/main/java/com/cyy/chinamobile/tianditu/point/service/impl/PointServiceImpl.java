@@ -36,9 +36,9 @@ public class PointServiceImpl implements PointService {
         if (pointVo.getCurrentPage() != null && pointVo.getPageSize() != null) {
             PageHelper.startPage(pointVo.getCurrentPage(), pointVo.getPageSize());
         }
-        // 查询所有point
-        List<Point> allPoints = pointMapper.selectAllPoints();
-        Integer total = pointMapper.countPoints();
+        // 查询所有point，当pointName不为空时模糊查询
+        List<Point> allPoints = pointMapper.selectAllPoints(pointVo);
+        Integer total = pointMapper.countPoints(pointVo);
 
         if (pointVo.getCurrentPage() != null && pointVo.getPageSize() != null) {
             // 构建pageData
@@ -73,10 +73,7 @@ public class PointServiceImpl implements PointService {
         return ReturnUtil.retMapSuccess("更新关键点成功", pointMapper.updatePoint(point));
     }
 
-    @Override
-    public Map<String, Object> getPointsLikeName(String pointName) {
-        return ReturnUtil.retMapSuccess("根据名称模糊查询成功", pointMapper.getPointsLikeName(pointName));
-    }
+
 
     @Override
     public Map<String, Object> getPointsByMap(PointVo pointVo) {

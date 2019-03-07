@@ -19,7 +19,8 @@ public interface CodeConstants {
         public static final String CITY_CODE = "cityCode";
         public static final String AREA_CODE = "areaCode";
         public static final String STREET_CODE = "streetCode";
-        public static final String LOCAL_SITE_URL = "D:\\work\\ctu.chinamobile.com\\tianditu\\Html\\";
+//        public static final String LOCAL_SITE_URL = "D:\\work\\ctu.chinamobile.com\\tianditu\\Html\\";
+        public static final String LOCAL_SITE_URL = "http://192.168.160.130:2011/";
         public static final String HTML = ".html";
 
         public static final int FULLY_DELETION_ID = 0;

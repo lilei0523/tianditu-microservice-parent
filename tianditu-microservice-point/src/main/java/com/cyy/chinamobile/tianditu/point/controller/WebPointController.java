@@ -1,6 +1,7 @@
 package com.cyy.chinamobile.tianditu.point.controller;
 
 import com.cyy.chinamobile.tianditu.microservice.domain.base.validatedgroup.ValidatedGroup;
+import com.cyy.chinamobile.tianditu.microservice.domain.base.validatedgroup.tiandituplatform.PointValidatedGroup;
 import com.cyy.chinamobile.tianditu.microservice.domain.point.vo.PointVo;
 import com.cyy.chinamobile.tianditu.microservice.util.ReturnUtil;
 import com.cyy.chinamobile.tianditu.point.service.PointService;
@@ -24,12 +25,13 @@ public class WebPointController {
     }
 
     /**
-     * 分页查询所有Point列表
+     * 分页查询所有Point列表,根据名称模糊查询
      *
      * @date 14:42 2019/2/25
      */
     @PostMapping(value = "/getAllPoints", produces = "application/json")
-    public Map<String, Object> getAllPoints(@RequestBody PointVo pointVo) throws Exception {
+    public Map<String, Object> getAllPoints(@Validated(PointValidatedGroup.QueryPointByPageGroup.class)
+                                                @RequestBody PointVo pointVo) throws Exception {
         return pointService.getAllPoints(pointVo);
     }
 
@@ -39,10 +41,10 @@ public class WebPointController {
      * @author L.L
      * @date 17:21 2019/3/5
      */
-    @PostMapping(value = "/getPointsLikeName", produces = "application/json")
+    /*@PostMapping(value = "/getPointsLikeName", produces = "application/json")
     public Map<String, Object> getPointsLikeName(@RequestBody PointVo point) throws Exception {
         return pointService.getPointsLikeName(point.getPointName());
-    }
+    }*/
 
 
     /**

@@ -20,8 +20,9 @@ public class Point {
     private String phone;
     private String internetSite;
     private String localSiteName;
+    private String localSiteUrl;
     private String lat;
-    private String log;
+    private String lon;
     @NotNull(groups = ValidatedGroup.CreateGroup.class, message = "类别不能为空")
     private String type;
     /**
@@ -83,12 +84,22 @@ public class Point {
     }
 
     public void setLocalSiteName(String localSiteName) {
+        this.localSiteName = localSiteName;
         // 拼接URL
         if (localSiteName == null) {
-            this.localSiteName = localSiteName;
+            this.localSiteUrl = null;
         } else {
-            this.localSiteName = CodeConstants.SYSTEM_INTER_CONSTATNTS.LOCAL_SITE_URL + localSiteName + CodeConstants.SYSTEM_INTER_CONSTATNTS.HTML;
+            this.localSiteUrl = CodeConstants.SYSTEM_INTER_CONSTATNTS.LOCAL_SITE_URL + localSiteName + CodeConstants.SYSTEM_INTER_CONSTATNTS.HTML;
         }
+    }
+
+    public String getLocalSiteUrl() {
+        return localSiteUrl;
+    }
+
+    public void setLocalSiteUrl(String localSiteUrl) {
+        // 拼接URL
+        this.localSiteUrl = localSiteUrl;
     }
 
     public String getLat() {
@@ -99,12 +110,12 @@ public class Point {
         this.lat = lat;
     }
 
-    public String getLog() {
-        return log;
+    public String getLon() {
+        return lon;
     }
 
-    public void setLog(String log) {
-        this.log = log;
+    public void setLon(String lon) {
+        this.lon = lon;
     }
 
     public String getType() {
@@ -133,7 +144,7 @@ public class Point {
                 ", internetSite='" + internetSite + '\'' +
                 ", localSiteName='" + localSiteName + '\'' +
                 ", lat='" + lat + '\'' +
-                ", log='" + log + '\'' +
+                ", lon='" + lon + '\'' +
                 ", type='" + type + '\'' +
                 ", isTopThreeHospital=" + isTopThreeHospital +
                 ", region='" + region + '\'' +

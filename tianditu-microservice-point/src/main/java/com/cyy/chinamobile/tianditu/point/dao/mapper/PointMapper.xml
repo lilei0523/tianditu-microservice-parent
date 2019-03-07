@@ -10,23 +10,33 @@
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
         <result column="internet_site" property="internetSite" jdbcType="VARCHAR"/>
         <result column="lat" property="lat" jdbcType="VARCHAR"/>
-        <result column="log" property="log" jdbcType="VARCHAR"/>
+        <result column="lon" property="lon" jdbcType="VARCHAR"/>
         <result column="type" property="type" jdbcType="INTEGER"/>
         <result column="is_top_three_hospital" property="isTopThreeHospital" jdbcType="BIT"/>
         <result column="region" property="region" jdbcType="VARCHAR"/>
         <result column="local_site_name" property="localSiteName" jdbcType="VARCHAR"/>
     </resultMap>
     <sql id="Base_Column_List">
-        id, name, address, phone, internet_site, lat, log, type, is_top_three_hospital, region, local_site_name
+        id, name, address, phone, internet_site, lat, lon, type, is_top_three_hospital, region, local_site_name
     </sql>
     <select id="selectAllPoints" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from point
+        where
+          1=1
+        <if test="point.pointName != null and point.pointName !=''">
+           and name like concat('%',#{point.pointName},'%')
+        </if>
     </select>
     <select id="countPoints" resultType="Integer">
         select count(0)
         from point
+        where
+        1=1
+        <if test="point.pointName != null and point.pointName !=''">
+            and name like concat('%',#{point.pointName},'%')
+        </if>
     </select>
     <select id="getPointsLikeName" resultMap="BaseResultMap">
         select
@@ -47,8 +57,8 @@
     <insert id="addPoint" parameterType="com.cyy.chinamobile.tianditu.microservice.domain.point.po.Point"
             useGeneratedKeys="true" keyProperty="id">
         insert into
-            point (name, address, phone, internet_site, lat, log, type, is_top_three_hospital, region, local_site_name)
-        values (#{point.name}, #{point.address}, #{point.phone}, #{point.internetSite}, #{point.lat}, #{point.log},
+            point (name, address, phone, internet_site, lat, lon, type, is_top_three_hospital, region, local_site_name)
+        values (#{point.name}, #{point.address}, #{point.phone}, #{point.internetSite}, #{point.lat}, #{point.lon},
                 #{point.type}, #{point.isTopThreeHospital}, #{point.region}, #{point.localSiteName})
     </insert>
     <delete id="deletePoint" parameterType="map">
@@ -78,8 +88,8 @@
             <if test="point.lat != null">
                 lat = #{point.lat},
             </if>
-            <if test="point.log != null">
-                log = #{point.log},
+            <if test="point.lon != null">
+                lon = #{point.lon},
             </if>
             <if test="point.type != null">
                 type = #{point.type},
@@ -106,9 +116,9 @@
         and
         lat <![CDATA[<=]]> #{vLat}
         and
-        log <![CDATA[>=]]> #{mLng}
+        lon <![CDATA[>=]]> #{mLng}
         and
-        log <![CDATA[<=]]> #{vLng}
+        lon <![CDATA[<=]]> #{vLng}
         and
         type = #{type}
         <!--type in

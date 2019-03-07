@@ -10,7 +10,7 @@ import java.util.Map;
 
 public interface PointMapper {
 
-    List<Point> selectAllPoints();
+    List<Point> selectAllPoints(@Param("point")PointVo pointVo);
 
     Integer updatePoint(@Param("point") PointVo point);
 
@@ -22,7 +22,7 @@ public interface PointMapper {
 
     List<Point> getPointsLikeName(String pointName);
 
-    Integer countPoints();
+    Integer countPoints(@Param("point")PointVo pointVo);
 
     List<Point> getPointsByMap(Map<String, Object> params);
 }

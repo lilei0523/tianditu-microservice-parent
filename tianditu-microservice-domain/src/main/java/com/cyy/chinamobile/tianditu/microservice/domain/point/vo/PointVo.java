@@ -9,6 +9,10 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+/**
+ * 关键点视图Bean
+ * @author LL
+ */
 @JsonInclude(Include.NON_NULL)
 public class PointVo extends Point {
 
@@ -47,6 +51,8 @@ public class PointVo extends Point {
     private Integer currentPage ;
     @NotNull(groups = {PointValidatedGroup.QueryPointByPageGroup.class},message = "请传递每页显示记录数")
     private Integer pageSize ;
+    @NotNull(groups = {ValidatedGroup.DeleteGroup.class},message = "请传递需要删除项的id")
+    private List<Integer> ids;
 
     public String getPointName() {
         return pointName;
@@ -113,6 +119,14 @@ public class PointVo extends Point {
         this.types = types;
     }
 
+    public List<Integer> getIds() {
+        return ids;
+    }
+
+    public void setIds(List<Integer> ids) {
+        this.ids = ids;
+    }
+
     @Override
     public String toString() {
         return "PointVo{" +
@@ -124,6 +138,7 @@ public class PointVo extends Point {
                 ", pointName='" + pointName + '\'' +
                 ", currentPage=" + currentPage +
                 ", pageSize=" + pageSize +
+                ", ids=" + ids +
                 '}';
     }
 }

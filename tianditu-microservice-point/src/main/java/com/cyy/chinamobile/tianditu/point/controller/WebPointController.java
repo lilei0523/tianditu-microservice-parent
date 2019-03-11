@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * 关键点controller
+ * @author LL
+ */
 @RestController
 @RequestMapping("/web")
 public class WebPointController {
@@ -31,21 +34,9 @@ public class WebPointController {
      */
     @PostMapping(value = "/getAllPoints", produces = "application/json")
     public Map<String, Object> getAllPoints(@Validated(PointValidatedGroup.QueryPointByPageGroup.class)
-                                                @RequestBody PointVo pointVo) throws Exception {
+                                            @RequestBody PointVo pointVo) throws Exception {
         return pointService.getAllPoints(pointVo);
     }
-
-    /**
-     * 根据名称模糊查询关键点
-     *
-     * @author L.L
-     * @date 17:21 2019/3/5
-     */
-    /*@PostMapping(value = "/getPointsLikeName", produces = "application/json")
-    public Map<String, Object> getPointsLikeName(@RequestBody PointVo point) throws Exception {
-        return pointService.getPointsLikeName(point.getPointName());
-    }*/
-
 
     /**
      * 新增point
@@ -65,11 +56,10 @@ public class WebPointController {
      * @date 14:44 2019/2/25
      */
     @PostMapping(value = "/deletePointByIds", produces = "application/json")
-    public Map<String, Object> deletePoint(@RequestBody Map<String, List<Integer>> ids) throws Exception {
-        if (ids.size() <= 0) {
-            return ReturnUtil.retMapFormatError("请传递需要删除的项");
-        }
-        return pointService.deletePoint(ids);
+    public Map<String, Object> deletePoint(@Validated(ValidatedGroup.DeleteGroup.class)
+                                           @RequestBody PointVo pointVo) throws Exception {
+
+        return pointService.deletePoint(pointVo);
     }
 
     /**

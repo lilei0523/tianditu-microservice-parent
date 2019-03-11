@@ -58,8 +58,8 @@ public class PointServiceImpl implements PointService {
     }
 
     @Override
-    public Map<String, Object> deletePoint(Map<String, List<Integer>> ids) {
-        List<Integer> ids1 = ids.get("ids");
+    public Map<String, Object> deletePoint(PointVo pointVo) {
+        List<Integer> ids1 = pointVo.getIds();
         logger.info("删除项id：" + ids1.toString());
         List<Point> points = pointMapper.selectPointById(ids1);
         if (points.isEmpty()) {
@@ -72,8 +72,6 @@ public class PointServiceImpl implements PointService {
     public Map<String, Object> updatePoint(PointVo point) {
         return ReturnUtil.retMapSuccess("更新关键点成功", pointMapper.updatePoint(point));
     }
-
-
 
     @Override
     public Map<String, Object> getPointsByMap(PointVo pointVo) {

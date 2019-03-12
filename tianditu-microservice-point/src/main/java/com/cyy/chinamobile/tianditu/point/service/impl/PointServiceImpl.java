@@ -33,23 +33,19 @@ public class PointServiceImpl implements PointService {
     @Override
     public Map<String, Object> getAllPoints(PointVo pointVo) {
         // 设置分页信息
-        if (pointVo.getCurrentPage() != null && pointVo.getPageSize() != null) {
-            PageHelper.startPage(pointVo.getCurrentPage(), pointVo.getPageSize());
-        }
-        // 查询所有point，当pointName不为空时模糊查询
+        PageHelper.startPage(pointVo.getCurrentPage(), pointVo.getPageSize());
+
+        // 查询所有point，当pointName不为空时查询为模糊查询
         List<Point> allPoints = pointMapper.selectAllPoints(pointVo);
         Integer total = pointMapper.countPoints(pointVo);
 
-        if (pointVo.getCurrentPage() != null && pointVo.getPageSize() != null) {
-            // 构建pageData
-            PageBean<Point> pageData = new PageBean<>(pointVo.getCurrentPage(), pointVo.getPageSize(), total);
-            pageData.setItems(allPoints);
-            pageData.setTotalNum(total);
-            // 返回分页数据
-            return ReturnUtil.retMapSuccess("查询所有关键点成功", pageData);
-        }
-        // 返回所有数据
-        return ReturnUtil.retMapSuccess("查询所有关键点成功", allPoints);
+        // 构建pageData
+        PageBean<Point> pageData = new PageBean<>(pointVo.getCurrentPage(), pointVo.getPageSize(), total);
+        pageData.setItems(allPoints);
+        pageData.setTotalNum(total);
+
+        // 返回分页数据
+        return ReturnUtil.retMapSuccess("查询所有关键点成功", pageData);
     }
 
     @Override
@@ -89,7 +85,7 @@ public class PointServiceImpl implements PointService {
             result.put(type, points);
         }
 
-        return ReturnUtil.retMapSuccess("查询成功",result);
+        return ReturnUtil.retMapSuccess("查询成功", result);
     }
 }
 

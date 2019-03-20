@@ -1,8 +1,8 @@
 # spring_cloud_demo
 
 #### 项目介绍
-spring could demo 框架
-
+spring could  version Finchley.SR2
+spring boot version 2.0.5.RELEASE
 #### 软件架构
 软件架构说明
 
@@ -18,4 +18,3 @@ spring could demo 框架
 1. xxxx
 2. xxxx
 3. xxxx
-
